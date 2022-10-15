@@ -1,0 +1,11 @@
+.uppercase-firstLetter {
+  text-transform: lowercase;    
+}
+
+.uppercase-firstLetter::first-letter {
+  text-transform: uppercase;    
+}
+
+p {
+  display: inline;
+}
