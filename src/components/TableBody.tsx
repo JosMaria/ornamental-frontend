@@ -1,4 +1,5 @@
-import { IdentificationResponseDTO } from '../types/Identification'
+import { IdentificationResponseDTO } from '../types/Identification';
+import { translateStatus } from '../utils/translate';
 
 interface TableBodyState {
   content: Array<IdentificationResponseDTO>
@@ -15,9 +16,8 @@ export const TableBody = ({ content }: TableBodyState) => {
           <td>{identification.scientificName}
             {`${identification.firstLetterLastname ? '; ' + identification.firstLetterLastname + '.' : ''}`}
           </td>
-          {/*IN_CONSERVATION*/}
           <td>{identification.family}</td>
-          <td>{identification.status}</td>
+          <td>{translateStatus(identification.status)}</td>
         </tr>)
     }
     </tbody>

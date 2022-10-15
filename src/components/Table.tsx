@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { fetchAllIdentifications } from '../services/axios'
+import { useEffect, useState } from 'react';
+import { fetchAllIdentifications } from '../services/axios';
 import { IdentificationResponseDTO } from '../types/Identification';
 import { TableBody } from './TableBody';
 import { TableHeader } from './TableHeader';

@@ -7,4 +7,4 @@ export interface IdentificationResponseDTO {
   status: Status
 }
 
-type Status = 'IN_CONSERVATION' | 'AVAILABLE' | 'NON_EXISTENT'; 
+export type Status = 'IN_CONSERVATION' | 'AVAILABLE' | 'NON_EXISTENT'; 
