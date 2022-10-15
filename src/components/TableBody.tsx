@@ -15,15 +15,14 @@ export const TableBody = ({ content }: TableBodyState) => {
         <tr key={identification.id}>
           <td>{identification.id}</td>
           <td className='uppercase-firstLetter'>{identification.commonName}</td>
-          <i>
-            <td>
-              <p>{identification.scientificName}</p>
-              <p>{`${identification.firstLetterLastname ? ' ' + identification.firstLetterLastname + '.' : ''}` }</p>
-            </td>  
-          </i>          
+          <td>
+            <p><i>{identification.scientificName}</i></p>
+            <p><i>{`${identification.firstLetterLastname ? ' ' + identification.firstLetterLastname + '.' : ''}`}</i></p>
+          </td>
           <td className='uppercase-firstLetter'>{identification.family}</td>
           <td>{translateStatus(identification.status)}</td>
-        </tr>)
+        </tr>
+      )
     }
     </tbody>
   )
