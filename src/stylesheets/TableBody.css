@@ -1,11 +1,12 @@
-.uppercase-firstLetter {
+tbody > tr .uppercase-firstLetter {
   text-transform: lowercase;    
 }
 
-.uppercase-firstLetter::first-letter {
+tbody > tr .uppercase-firstLetter::first-letter {
   text-transform: uppercase;    
 }
 
-p {
+tbody > tr td > p {
   display: inline;
+  text-transform: capitalize;
 }
