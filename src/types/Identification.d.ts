@@ -4,5 +4,7 @@ export interface IdentificationResponseDTO {
   scientificName?: string,
   firstLetterLastname?: string,
   family?: string,
-  status: string
+  status: Status
 }
+
+type Status = 'IN_CONSERVATION' | 'AVAILABLE' | 'NON_EXISTENT'; 

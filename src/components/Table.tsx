@@ -18,9 +18,8 @@ export const Table = () => {
       <h1>Esta es la tabla de identificaciones</h1>
       <table>
         <TableHeader />
-        <TableBody />
+        <TableBody content={identifications} />
       </table>
-      <>{ console.log(identifications)} </>
     </div>
   )
 }
