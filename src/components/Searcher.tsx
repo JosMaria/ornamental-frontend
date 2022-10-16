@@ -1,10 +1,10 @@
 import { IdentificationResponseDTO, Status } from '../types/Identification';
 
-interface SearcherProps {
+interface DropdownSearcherProps {
   changeStatus: (status: Status) => void
 }
 
-export const Searcher = ({ changeStatus }: SearcherProps) => {
+export const DropdownSearcher = ({ changeStatus }: DropdownSearcherProps) => {
   return (
     <form>
       <select name='status' onChange={(event) => changeStatus(event.target.value as Status)}>
