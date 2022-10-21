@@ -5,7 +5,6 @@ import { DropdownSearcher, SearchBar} from './Searcher';
 import { Table } from './Table';
 
 export const Content = () => {
-
   const [identifications, setIdentifications] = useState<Array<IdentificationResponseDTO>>([]);
   const [searchResults, setSearchResults] = useState<Array<IdentificationResponseDTO>>([]);
   const [stateToSearch, setStateToSearch] = useState<Status>('ALL');
