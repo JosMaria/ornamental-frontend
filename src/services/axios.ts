@@ -13,7 +13,9 @@ const fetchAllIdentifications = async () => {
 };
 
 const fetchAllIdentificationsByStatus = async (status: Status) => {
-  const response = await domain.get(`api/v1/ornamental_plants/identifications/${status}`)
+  const response = status === 'ALL' ?
+    await domain.get(`api/v1/ornamental_plants/identifications`) :
+    await domain.get(`api/v1/ornamental_plants/identifications/${status}`);
   return response.data;
 }
 

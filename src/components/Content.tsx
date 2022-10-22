@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { IdentificationResponseDTO, Status } from '../types/Identification';
-import { fetchAllIdentifications, fetchAllIdentificationsByStatus } from '../services/axios';
+import { fetchAllIdentificationsByStatus } from '../services/axios';
 import { DropdownSearcher, SearchBar} from './Searcher';
 import { Table } from './Table';
 
@@ -15,17 +15,11 @@ export const Content = () => {
   const handleWordToSearchBar = (identifications: Array<IdentificationResponseDTO>) => setSearchResults(identifications);
 
   useEffect(() => {
-    stateToSearch !== 'ALL' ? 
-      fetchAllIdentificationsByStatus(stateToSearch)
-        .then(identifications => {
-          setIdentifications(identifications);
-          setSearchResults(identifications);
-        }) :
-      fetchAllIdentifications()
-        .then(identifications => {
-          setIdentifications(identifications);
-          setSearchResults(identifications);
-        });
+    fetchAllIdentificationsByStatus(stateToSearch)
+      .then(identifications => {
+        setIdentifications(identifications);
+        setSearchResults(identifications)
+      })
   }, [stateToSearch]);
 
   return (
