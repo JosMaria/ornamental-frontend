@@ -4,6 +4,8 @@ import { fetchAllIdentifications, fetchAllIdentificationsByStatus } from '../ser
 import { DropdownSearcher, SearchBar} from './Searcher';
 import { Table } from './Table';
 
+import '../stylesheets/Content.css';
+
 export const Content = () => {
   const [identifications, setIdentifications] = useState<Array<IdentificationResponseDTO>>([]);
   const [searchResults, setSearchResults] = useState<Array<IdentificationResponseDTO>>([]);
@@ -27,10 +29,12 @@ export const Content = () => {
   }, [stateToSearch]);
 
   return (
-    <div>
-      <h1>LISTADO</h1>
-      <DropdownSearcher changeStatus={handleChangeStatus} />
-      <SearchBar identifications={identifications} wordToSearchBar={handleWordToSearchBar} />
+    <div className='content-container'>
+      <h1>LISTADO DE PLANTAS</h1>
+      <div className='searcher-container'>
+        <SearchBar identifications={identifications} wordToSearchBar={handleWordToSearchBar} />
+        <DropdownSearcher changeStatus={handleChangeStatus} />
+      </div>
       <Table searchResults={searchResults} />
     </div>
   )

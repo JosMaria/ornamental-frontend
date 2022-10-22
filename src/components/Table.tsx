@@ -18,7 +18,7 @@ export const Table = ({ searchResults }: TableProps) => {
 
 const TableHeader = () => {
   return (
-    <thead>
+    <thead className='table-header'>
       <tr>
         <th>N°</th>
         <th>NOMBRE COMÚN</th>
