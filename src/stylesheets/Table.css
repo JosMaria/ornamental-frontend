@@ -1,0 +1,34 @@
+table {
+  border-collapse: collapse;
+}
+
+thead > tr > th {
+  padding: 0.8em 0.5em 0.8em 0.5em;
+  background-color: #394926;
+  color: #fff;
+}
+
+tbody > tr:nth-of-type(even) {
+  background-color: #bebaba;
+}
+
+tbody > tr > td {
+  padding: 0.4em 0 0.4em 1.3em;
+}
+
+tbody > tr > td:last-child {
+  padding: 0 1em 0 1em;
+}
+
+tbody > tr .uppercase-firstLetter {
+  text-transform: lowercase;    
+}
+
+tbody > tr .uppercase-firstLetter::first-letter {
+  text-transform: uppercase;
+}
+
+tbody > tr td > p {
+  display: inline;
+  text-transform: capitalize;
+}

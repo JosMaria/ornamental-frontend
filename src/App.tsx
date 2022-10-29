@@ -1,13 +1,7 @@
-import { Table } from './components/Table';
+import { Content } from './components/Content';
 
-import './App.css';
-
-function App() {
+export const App = () => {
   return (
-    <div className='App'>
-      <Table />
-    </div>
+    <Content />
   );
 }
-
-export default App;
