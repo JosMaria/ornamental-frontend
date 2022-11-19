@@ -5,6 +5,8 @@ import { DropdownSearcher, SearchBar} from './Searcher';
 import { Table } from './Table';
 
 import '../stylesheets/Content.css';
+import { ViewListPDF } from './ViewListPDF';
+import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
 
 export const Content = () => {
   const [identifications, setIdentifications] = useState<Array<IdentificationResponseDTO>>([]);
@@ -39,7 +41,12 @@ export const Content = () => {
     <div className='buttons-container'>
       <button onClick={handleViewNormal}>Vista Normal</button>
       <button onClick={handleViewPDF}>Vista PDF</button>
-      <button>Descargar PDF</button>
+        <PDFDownloadLink
+          document={<ViewListPDF searchResults={searchResults} />}
+          fileName='listado de plantas.pdf'
+        >
+          <button>Descargar PDF</button>
+        </PDFDownloadLink>
     </div>
   );
 
@@ -58,9 +65,12 @@ export const Content = () => {
         </>
       }
       {
-        viewPDF && <h1>VISTA PDF</h1>
+        viewPDF && (
+          <PDFViewer style={{ width: '100%', height: '90vh' }}>
+            <ViewListPDF searchResults={searchResults} />
+          </PDFViewer>
+        )
       }
-
     </div>
   )
 }
