@@ -22,14 +22,45 @@ export const Content = () => {
       })
   }, [stateToSearch]);
 
+  const [viewNormal, setViewNormal] = useState(true);
+  const [viewPDF, setViewPDF] = useState(false); 
+
+  const handleViewNormal = () => {
+    setViewPDF(false);
+    setViewNormal(true);
+  };
+
+  const handleViewPDF = () => {
+    setViewNormal(false);
+    setViewPDF(true);
+  };
+
+  const sectionsButtons = (
+    <div className='buttons-container'>
+      <button onClick={handleViewNormal}>Vista Normal</button>
+      <button onClick={handleViewPDF}>Vista PDF</button>
+      <button>Descargar PDF</button>
+    </div>
+  );
+
   return (
     <div className='content-container'>
-      <h1>LISTADO DE PLANTAS</h1>
-      <div className='searcher-container'>
-        <SearchBar identifications={identifications} wordToSearchBar={handleWordToSearchBar} />
-        <DropdownSearcher changeStatus={handleChangeStatus} />
-      </div>
-      <Table searchResults={searchResults} />
+      { sectionsButtons }
+
+      { viewNormal && 
+        <>
+          <h1>LISTADO DE PLANTAS</h1>
+          <div className='searcher-container'>
+            <SearchBar identifications={identifications} wordToSearchBar={handleWordToSearchBar} />
+            <DropdownSearcher changeStatus={handleChangeStatus} />
+          </div>
+          <Table searchResults={searchResults} />  
+        </>
+      }
+      {
+        viewPDF && <h1>VISTA PDF</h1>
+      }
+
     </div>
   )
 }
