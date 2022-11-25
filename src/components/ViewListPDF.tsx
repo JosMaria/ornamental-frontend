@@ -13,57 +13,98 @@ const styles = StyleSheet.create({
     paddingHorizontal: 35,
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
     textAlign: 'center',
-    fontFamily: 'Oswald'
+    fontFamily: 'Times-Bold',
+    padding: 20
   },
   viewHeader: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    padding: 5,
-    borderWidth: 2,
-    borderStyle: 'solid',
-    borderColor: 'black',
   },
   textHeader: {
     fontFamily: 'Helvetica',
     fontSize: 12
   },
-  text: {
-    
-    fontSize: 14,
-    textAlign: 'justify',
-    fontFamily: 'Times-Roman',
-    paddingLeft: 20
+  textHeaderNumber: {
+    width: 40,
+    border: '1 solid black',
+    fontSize: 12,
+    fontFamily: 'Helvetica-Bold',
+    padding: 7,
+    textAlign: 'center',
+    margin: 0
+  },
+  textHeaderCommonName: {
+    width: 170,
+    border: '1 solid black',
+    borderLeftWidth: 0,
+    fontSize: 12,
+    fontFamily: 'Helvetica-Bold',
+    padding: 7,
+    textAlign: 'center',
+    margin: 0
+  },
+  textHeaderScientificName: {
+    width: 200,
+    border: '1 solid black',
+    borderLeftWidth: 0,
+    fontSize: 12,
+    fontFamily: 'Helvetica-Bold',
+    padding: 7,
+    textAlign: 'center',
+    margin: 0
+  },
+  textHeaderFamily: {
+    width: 120,
+    border: '1 solid black',
+    borderLeftWidth: 0,
+    fontSize: 12,
+    fontFamily: 'Helvetica-Bold',
+    padding: 7,
+    textAlign: 'center',
+    margin: 0
   },
   textNumber: {
+    textAlign: 'center',
     padding: 5,
     fontFamily: 'Times-Roman',
-    fontSize: 14,
+    fontSize: 13,
     width: 40,
-    backgroundColor: 'blue'
+    border: '1 solid black',
+    borderTopWidth: 0,
+    margin: 0
   },
   textCommonName: {
     padding: 5,
     fontFamily: 'Times-Roman',
-    fontSize: 14,
-    width: 150,
-    backgroundColor: 'green'
+    fontSize: 13,
+    width: 170,
+    border: '1 solid black',
+    borderLeftWidth: 0,
+    borderTopWidth: 0,
+    margin: 0
   },
   textScientificName: {
     padding: 5,
     fontFamily: 'Times-Roman',
-    fontSize: 14,
+    fontSize: 13,
     width: 200,
-    backgroundColor: 'white'
+    border: '1 solid black',
+    borderLeftWidth: 0,
+    borderTopWidth: 0,
+    margin: 0
   },
   textFamily: {
     padding: 5,
     fontFamily: 'Times-Roman',
-    fontSize: 14,
-    width: 100,
-    backgroundColor: 'pink'
+    fontSize: 13,
+    width: 120,
+    border: '1 solid black',
+    borderLeftWidth: 0,
+    borderTopWidth: 0,
+    margin: 0
   },
   viewRow: {
     display: 'flex',
@@ -101,10 +142,10 @@ export const ViewListPDF = ({ searchResults }: ViewListPDFProps) => (
       <Page size='A4' style={styles.body}>
         <Text style={styles.title}>LISTADO</Text>
         <View style={styles.viewHeader}>
-          <Text style={styles.textHeader}>N°</Text>
-          <Text style={styles.textHeader}>NOMBRE COMÚN</Text>
-          <Text style={styles.textHeader}>NOMBRE CIENTIFICO</Text>
-          <Text style={styles.textHeader}>FAMILIA</Text>
+          <Text style={styles.textHeaderNumber}>N°</Text>
+          <Text style={styles.textHeaderCommonName}>NOMBRE COMÚN</Text>
+          <Text style={styles.textHeaderScientificName}>NOMBRE CIENTIFICO</Text>
+          <Text style={styles.textHeaderFamily}>FAMILIA</Text>
         </View>
         {
           searchResults.map(identification => (
