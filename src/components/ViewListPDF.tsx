@@ -1,5 +1,13 @@
-import { StyleSheet, Font, Document, Page, Text, View } from '@react-pdf/renderer';
+import { StyleSheet, Font, Document, Page, Text, View, Image } from '@react-pdf/renderer';
 import { IdentificationResponseDTO } from '../types/Identification';
+import Logo from '../images/logo-fdryt.jpg';
+
+const valueFontSize = 10;
+const valueFontFamily = 'Times-Roman';
+const valuePadding = 3;
+
+const colWidthCommonName = 120;
+const colWidthScientificName = 170;
 
 Font.register({
   family: 'Oswald',
@@ -10,22 +18,28 @@ const styles = StyleSheet.create({
   body: {
     paddingTop: 35,
     paddingBottom: 65,
-    paddingHorizontal: 35,
+    paddingHorizontal: 35
+  },
+  header: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center'
   },
   title: {
     fontSize: 20,
     textAlign: 'center',
     fontFamily: 'Times-Bold',
-    padding: 20
+    paddingBottom: 10,
+    paddingTop: 5
   },
   viewHeader: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
   },
   textHeader: {
     fontFamily: 'Helvetica',
-    fontSize: 12
+    fontSize: 11
   },
   textHeaderNumber: {
     width: 40,
@@ -37,7 +51,7 @@ const styles = StyleSheet.create({
     margin: 0
   },
   textHeaderCommonName: {
-    width: 170,
+    width: colWidthCommonName,
     border: '1 solid black',
     borderLeftWidth: 0,
     fontSize: 12,
@@ -47,7 +61,7 @@ const styles = StyleSheet.create({
     margin: 0
   },
   textHeaderScientificName: {
-    width: 200,
+    width: colWidthScientificName,
     border: '1 solid black',
     borderLeftWidth: 0,
     fontSize: 12,
@@ -68,38 +82,38 @@ const styles = StyleSheet.create({
   },
   textNumber: {
     textAlign: 'center',
-    padding: 5,
-    fontFamily: 'Times-Roman',
-    fontSize: 13,
+    padding: valuePadding,
+    fontFamily: valueFontFamily,
+    fontSize: valueFontSize,
     width: 40,
     border: '1 solid black',
     borderTopWidth: 0,
     margin: 0
   },
   textCommonName: {
-    padding: 5,
-    fontFamily: 'Times-Roman',
-    fontSize: 13,
-    width: 170,
+    padding: valuePadding,
+    fontFamily: valueFontFamily,
+    fontSize: valueFontSize,
+    width: colWidthCommonName,
     border: '1 solid black',
     borderLeftWidth: 0,
     borderTopWidth: 0,
     margin: 0
   },
   textScientificName: {
-    padding: 5,
-    fontFamily: 'Times-Roman',
-    fontSize: 13,
-    width: 200,
+    padding: valuePadding,
+    fontFamily: valueFontFamily,
+    fontSize: valueFontSize,
+    width: colWidthScientificName,
     border: '1 solid black',
     borderLeftWidth: 0,
     borderTopWidth: 0,
     margin: 0
   },
   textFamily: {
-    padding: 5,
-    fontFamily: 'Times-Roman',
-    fontSize: 13,
+    padding: valuePadding,
+    fontFamily: valueFontFamily,
+    fontSize: valueFontSize,
     width: 120,
     border: '1 solid black',
     borderLeftWidth: 0,
@@ -119,6 +133,12 @@ const styles = StyleSheet.create({
     right: 0,
     textAlign: 'center',
     color: 'grey',
+  },
+  image: {
+    width: 40,
+    height: 40,
+    marginBottom: 10,
+    marginLeft: 30
   }
 });
 
@@ -140,7 +160,10 @@ interface ViewListPDFProps {
 export const ViewListPDF = ({ searchResults }: ViewListPDFProps) => (
   <Document title='plant-list.pdf'>
       <Page size='A4' style={styles.body}>
-        <Text style={styles.title}>LISTADO</Text>
+        <View style={styles.header}>
+          <Text style={styles.title}>LISTADO DE ESPECIES</Text>
+          <Image style={styles.image} src={Logo} />
+        </View>
         <View style={styles.viewHeader}>
           <Text style={styles.textHeaderNumber}>N°</Text>
           <Text style={styles.textHeaderCommonName}>NOMBRE COMÚN</Text>
